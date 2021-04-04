@@ -4,7 +4,8 @@ def convert_sdk(filestream):
     content: str = filestream.read()
     lines = content.replace('.', '0').split('\n')
     grid = [list(line) for line in lines]
-    return Grid(grid)
+    num_grid = list(map(lambda row : list(map(lambda value : int(value), row)), grid))
+    return Grid(num_grid)
 
 converters = {
     'sdk': convert_sdk
